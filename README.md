@@ -15,13 +15,13 @@
 
 ##Overview
 
-Avi puppet module allows you to create and manage configurations of objects in Avi Controller. Puppet agent which runs on controller uses REST APIs to communicate with controller.
+The Avi Puppet module allows you to create and manage configurations of objects in Avi Controller. The Puppet agent, which runs on the Avi Cloud ADC Controller, uses REST APIs to communicate between the Puppet-server and the Avi Controller.
 
 ##Module Description
 
-This module consist of a wrapper around Avi CLI. It uses current user's credentails to register with controller and update objects using underlaying REST API.
+This module consists of a wrapper around the Avi CLI. It uses the current user's credentials to register with Controller and update objects using the CLI's underlying REST API.
 
-Avi module uses config_import script in controller (located at /opt/avi/python/bin/utils). Given a valid JSON config export file, it imports everything in file to controller configs. If any existing object is changed, the script will update the configuration of existing object.
+The Avi module uses config_import script in the Controller (located at /opt/avi/python/bin/utils). Given a valid JSON config export file, it imports everything in the file to the Controller's config. If any existing object is changed, the script will update the configuration of existing object.
 
 
 ##Setup
@@ -31,15 +31,15 @@ Avi module uses config_import script in controller (located at /opt/avi/python/b
    * Avi Controller services are up and running
    * Puppet agent is running on the master node
 
-You will manually need to point puppet agent running on controller to puppet-server.
+You will manually need to point the Puppet agent running on the Avi Controller to Puppet-server.
 
 ###What Avi module affects
    * Avi Controller services
-   * Virtual services running on service engines
+   * Virtual Services running on the Avi Service Engines
 
 ###Beginning with Avi
 
-The simplest way to get started with Avi is to create a VS config JSON file
+The simplest way to get started with Avi is to create a Virtual Service config JSON file
 /root/configs/lb.json and import to Avi Controller as -
 
     node 'hostname.example.com' {
@@ -127,7 +127,7 @@ Sample lb.json file -
         ],
     }
 
-In Puppet module, change VS config file path to actual path on controller node -
+In Puppet module, change the Virtual Service config file path to the actual path on the Controller -
 
     exec { 'python /opt/avi/python/bin/utils/config_import.py --command "import configuration file <PATH_TO_LB_JSON>"':
             path           => "/bin:/usr/bin:/usr/sbin/sbin",
@@ -141,9 +141,9 @@ In Puppet module, change VS config file path to actual path on controller node -
 The config file (/root/configs/lb.json) is used to maintain and update all
 configurations on the Avi Controller.
 
-###Add new service to Virtual Service
+###Add new service port to a Virtual Service
 
-Updates to Virtual Service can be made by modifying contents of a JSON config file. To add another service port (443) on virtual server, add following lines at top of services list in lb.json file -
+Updates to a Virtual Service can be made by modifying the contents of a JSON config file. For the example of adding another service port (443) to an existing Virtual Service, add following lines at top of services list in lb.json file -
 
                 {
                     "port": 80,
@@ -163,36 +163,36 @@ The new object will look like -
                 }
         ],
 
-The next run of puppet agent on controller will add new service port to virtual service. Removing services or any other config can be done with remove the corresponding configuration from JSON file.
+The next run of the Puppet agent on the Avi Controller will add the new service port to Virtual Service. Removing service ports or other configuration can be done with remove the corresponding configuration from JSON file.
 
-###Add SSL certificate to Virtual Service
-To add SSL certificate, add following lines to lb.json file.
+###Add SSL certificate to a Virtual Service
+To add an SSL certificate, add following lines to lb.json file.
 
     ssl_profile_ref: "admin:Standard",
     ssl_key_and_certificate_refs: ["admin:System-Default-Cert"]
 
-This will use System-Default-Cert while serving requests coming on SSL port.
+This will use System-Default-Cert while serving requests coming on an SSL enabled service port.
 
 ##Reference
 
-The documentation about available objects and attributes is available at - [Avi Controller API Guide] (http://avinetworks.com/customerportal)
+The documentation about available objects and attributes is available at - [Avi API Guide] (http://avinetworks.com/customerportal)
 
 ##Limitations
 
-* Puppet module allows to import and update existing configurations to controller but, doesn't allow any deletes.
+* The Puppet module allows imports and updates to existing configurations on an Avi Controller, but does not allow  deletes.
 
-Addressing limitations is planned for upcoming release of avi-puppet module.
+Addressing this limitation is planned for an upcoming release of the Avi-Puppet module.
 
 ##Development
 
-Avi module can be customized to run all commands supported by our CLI. This can be done by adding multiple lines of -
+The Avi-Puppet module can be customized to run all commands supported by the Avi CLI. This can be done by adding multiple lines of -
 
     exec { 'python /opt/avi/python/bin/utils/config_import.py --command "COMMAND TO EXECUTE"':
             path           => "/bin:/usr/bin:/usr/sbin/sbin",
             require        => File['/opt/avi/python/bin/utils/config_import.py']
         }
 
-in init.pp of avi module.
+in init.pp of the Avi-Puppet module.
 
 
 ##License
