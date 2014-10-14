@@ -24,7 +24,7 @@
   ],
   "checksums": {
     "Modulefile": "438c84dcda658477ed7dace3a614dd6f",
-    "README.md": "a2fc3f7eb383a4bba69feb57c9187b1e",
+    "README.md": "697774b2c4004063a32077ed6591d42b",
     "manifests/nodes.pp": "2cd6f7995a6604ca82d0f5978d8e8161",
     "manifests/site.pp": "8fe6cc4b07e229ccf7ea6efabab470fd",
     "modules/avi/files/lb.json": "aa7db6baede636f726436740abf79ca9",
