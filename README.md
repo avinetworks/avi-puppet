@@ -28,14 +28,14 @@ Avi module uses config_import script in controller (located at /opt/avi/python/b
 
 ###Setup Requirements
 
-    * Avi Controller services are up and running
-    * Puppet agent is running on the master node
+   * Avi Controller services are up and running
+   * Puppet agent is running on the master node
 
 You will manually need to point puppet agent running on controller to puppet-server.
 
 ###What Avi module affects
-    * Avi Controller services
-    * Virtual services running on service engines
+   * Avi Controller services
+   * Virtual services running on service engines
 
 ###Beginning with Avi
 
