@@ -1,0 +1,18 @@
+{
+  "name": "avi",
+  "version": "1.0.1",
+  "author": "Avi Networks",
+  "license": "Licensed under (Apache 2.0)",
+  "summary": "Avi puppet module allows you to create and manage configurations of objects in Avi Controller.",
+  "source": "https://github.com/avinetworks/avi-puppet",
+  "project_page": "https://github.com/avinetworks/avi-puppet/",
+  "issues_url": "https://github.com/avinetworks/avi-puppet/issues",
+  "operatingsystem_support": [
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "14.04" ]
+    }
+   ]
+  "dependencies": [
+  ]
+}
