@@ -1,13 +1,13 @@
-#Puppetlabs-Avi
+#avi-puppet
 
 ####Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with puppetlabs-avi](#setup)
-    * [What puppetlabs-avi affects](#what-puppetlabs-avi-affects)
+3. [Setup - The basics of getting started with avi-puppet](#setup)
+    * [What avi-puppet affects](#what-puppetlabs-avi-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with puppetlabs-avi](#beginning-with-avi)
+    * [Beginning with avi-puppet](#beginning-with-avi)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -181,7 +181,7 @@ The documentation about available objects and attributes is available at - <LINK
 
 * Puppet module allows to import and update existing configurations to controller but, doesn't allow any deletes.
 
-Addressing limitations is planned for upcoming release of puppetlabs-avi module.
+Addressing limitations is planned for upcoming release of avi-puppet module.
 
 ##Development
 
