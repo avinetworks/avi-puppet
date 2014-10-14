@@ -1,0 +1,78 @@
+{
+    "VirtualService": [
+        {
+            "description": "",
+            "name": "My Application",
+            "address": "10.10.1.10",
+            "ip_address": {
+                "addr": "10.10.1.10",
+                "type": "V4"
+            },
+            "enabled": true,
+            "services": [
+                {
+                    "port": 80,
+                    "enable_ssl": false
+                }
+            ],
+            "application_profile_ref": "admin:System-HTTP",
+            "network_profile_ref": "admin:System-TCP-Proxy",
+            "pool_ref": "admin:NginxPool",
+            "ssl_key_and_certificate_refs": [],
+            "analytics_policy": {
+                "full_client_logs": {
+                    "enabled": true,
+                    "duration": 30
+                },
+                "client_log_filters": [],
+                "client_insights": "ACTIVE",
+                "metrics_realtime_update": {
+                    "enabled": true,
+                    "duration": 60
+                }
+            },
+            "enable_autogw": false,
+            "tenant_ref": "admin",
+        }
+    ],
+    "Pool": [
+        {
+            "description": "",
+            "name": "NginxPool",
+            "default_server_port": 80,
+            "graceful_disable_timeout": 1,
+            "connection_ramp_duration": 299,
+            "max_concurrent_connections_per_server": 10000,
+            "health_monitor_refs": [
+                "admin:System-Ping",
+                "admin:System-TCP"
+            ],
+            "servers": [
+                {
+                    "ip": {
+                        "addr": "10.40.21.62",
+                        "type": "V4"
+                    },
+                    "hostname": "nginx-1.avi.local",
+                    "enabled": true,
+                    "ratio": 1
+                },
+                {
+                    "ip": {
+                        "addr": "10.40.21.61",
+                        "type": "V4"
+                    },
+                    "hostname": "nginx-2.avi.local",
+                    "enabled": true,
+                    "ratio": 12
+                }
+            ],
+            "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS",
+            "use_service_port": false,
+            "inline_health_monitor": false,
+            "networks": [],
+            "tenant_ref": "admin",
+            "certificate": []
+        }
+    ],
+}
