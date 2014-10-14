@@ -175,7 +175,7 @@ This will use System-Default-Cert while serving requests coming on SSL port.
 
 ##Reference
 
-The documentation about available objects and attributes is available at - <LINK_FOR_DOCUMENTATION>
+The documentation about available objects and attributes is available at - [Avi Controller API Guide] (http://avinetworks.com/customerportal)
 
 ##Limitations
 
