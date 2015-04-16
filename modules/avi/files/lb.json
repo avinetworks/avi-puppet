@@ -32,7 +32,7 @@
                 }
             },
             "enable_autogw": false,
-            "tenant_ref": "admin",
+            "tenant_ref": "admin"
         }
     ],
     "Pool": [
@@ -75,4 +75,15 @@
             "certificate": []
         }
     ],
+    "META": {
+          "version": {
+          "Product": "controller",
+          "Version": 15.2,
+          "build": 2009,
+          "Date": "2015-03-20 21:19:13 UTC",
+          "min_version": 14.2,
+          "ProductName": "Avi Cloud Controller"
+        },
+        "use_tenant": "admin"
+   }
 }
